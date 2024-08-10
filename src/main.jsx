@@ -1,11 +1,12 @@
-import { StrictMode } from "react";
+import { StrictMode, lazy } from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App.jsx";
 import "./styles/app.scss";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Home from "./pages/Home";
-import Search from "./pages/Search";
-import Cart from "./pages/Cart";
+
+const Home = lazy(() => import("./pages/Home"));
+const Search = lazy(() => import("./pages/Search"));
+const Cart = lazy(() => import("./pages/Cart"));
 const router = createBrowserRouter([
   {
     path: "/",
