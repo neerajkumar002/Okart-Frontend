@@ -1,8 +1,10 @@
-import { StrictMode, lazy } from "react";
+/* eslint-disable react-refresh/only-export-components */
+import { StrictMode, lazy, Suspense } from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App.jsx";
 import "./styles/app.scss";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Loader from "./components/Loader.jsx";
 
 const Home = lazy(() => import("./pages/Home"));
 const Search = lazy(() => import("./pages/Search"));
@@ -30,6 +32,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RouterProvider router={router}></RouterProvider>
+    <Suspense fallback={<Loader />}>
+      <RouterProvider router={router}></RouterProvider>
+    </Suspense>
   </StrictMode>
 );
