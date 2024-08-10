@@ -9,6 +9,11 @@ import Loader from "./components/Loader.jsx";
 const Home = lazy(() => import("./pages/Home"));
 const Search = lazy(() => import("./pages/Search"));
 const Cart = lazy(() => import("./pages/Cart"));
+
+const Dashboard = lazy(() => import("./pages/admin/Dashboard"));
+const Customers = lazy(() => import("./pages/admin/Customers"));
+const Products = lazy(() => import("./pages/admin/Products"));
+const Transaction = lazy(() => import("./pages/admin/Transaction"));
 const router = createBrowserRouter([
   {
     path: "/",
@@ -25,6 +30,22 @@ const router = createBrowserRouter([
       {
         path: "/cart",
         element: <Cart />,
+      },
+      {
+        path: "/admin/dashboard",
+        element: <Dashboard />,
+      },
+      {
+        path: "/admin/customer",
+        element: <Customers />,
+      },
+      {
+        path: "/admin/product",
+        element: <Products />,
+      },
+      {
+        path: "/admin/transaction",
+        element: <Transaction />,
       },
     ],
   },
