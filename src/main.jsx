@@ -14,9 +14,20 @@ const Dashboard = lazy(() => import("./pages/admin/Dashboard"));
 const Customers = lazy(() => import("./pages/admin/Customers"));
 const Products = lazy(() => import("./pages/admin/Products"));
 const Transaction = lazy(() => import("./pages/admin/Transaction"));
+
+const Bar = lazy(() => import("./pages/admin/Bar.jsx"));
+const Pie = lazy(() => import("./pages/admin/Pie.jsx"));
+const Line = lazy(() => import("./pages/admin/Line.jsx"));
+
+
+const Stopwatch = lazy(() => import("./pages/admin/Stopwatch.jsx"));
+const Coupan = lazy(() => import("./pages/admin/Coupan.jsx"));
+const Toss = lazy(() => import("./pages/admin/Toss.jsx"));
+
+
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/",  
     element: <App />,
     children: [
       {
@@ -48,13 +59,34 @@ const router = createBrowserRouter([
         element: <Transaction />,
       },
 
-    // Charts
+      // Charts
 
+      {
+        path: "/admin/chart/bar",
+        element: <Bar />,
+      },
+      {
+        path: "/admin/chart/pie",
+        element: <Pie />,
+      },
+      {
+        path: "/admin/chart/line",
+        element: <Line />,
+      },
 
-
-
-    
-    // Apps
+      // Apps
+      {
+        path: "/admin/app/stopwatch",
+        element: <Stopwatch />,
+      },
+      {
+        path: "/admin/app/coupan",
+        element: <Coupan />,
+      },
+      {
+        path: "/admin/app/toss",
+        element: <Toss />,
+      },
     ],
   },
 ]);
