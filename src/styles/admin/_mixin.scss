@@ -34,7 +34,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
-@mixin square($s: 1rem) {
+@mixin sqaure($s: 1rem) {
   height: $s;
   width: $s;
 }
