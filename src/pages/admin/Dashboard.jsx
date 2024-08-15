@@ -4,7 +4,7 @@ import { BsSearch } from "react-icons/bs";
 import { FaRegBell } from "react-icons/fa";
 import userProfileImage from "../../assets/profile.png";
 import { HiTrendingUp, HiTrendingDown } from "react-icons/hi";
-
+import data from "../../assets/data.json";
 const Dashboard = () => {
   return (
     <div className="adminContainer">
@@ -19,7 +19,7 @@ const Dashboard = () => {
           <img src={userProfileImage} alt="User" />
         </div>
         {/* widget container */}
-        <div className="widget-container">
+        <section className="widget-container">
           <WidgetItem
             heading={"Revenue"}
             amount={true}
@@ -42,10 +42,31 @@ const Dashboard = () => {
           <WidgetItem
             heading={"Product"}
             value={100}
-            percent={30}
+            percent={80}
             color="rgb(75 0 255)"
           />
-        </div>
+        </section>
+
+        {/* graph container */}
+        <section className="graph-container">
+          <div className="revenue-chart">
+            <h2>Revenue & Transactions</h2>
+            {/* Graph here */}
+          </div>
+          <div className="dashbord-categories">
+            <h2>Inventory</h2>
+            <div>
+              {data.categories.map((category, i) => (
+                <CategoryItem
+                  key={i}
+                  heading={category.heading}
+                  value={category.value}
+                  color={`hsl(${category.value*3},${category.value}%,50%)`}
+                />
+              ))}
+            </div>
+          </div>
+        </section>
       </main>
     </div>
   );
@@ -80,6 +101,16 @@ const WidgetItem = ({ heading, value, percent, color, amount = false }) => (
       <span style={{ color }}>{percent}%</span>
     </div>
   </article>
+);
+
+const CategoryItem = ({ color, value, heading }) => (
+  <div className="category-item">
+    <h5>{heading}</h5>
+    <div>
+      <div style={{ backgroundColor: color, width: `${value}%` }}></div>
+    </div>
+    <span>{value}%</span>
+  </div>
 );
 
 export default Dashboard;
