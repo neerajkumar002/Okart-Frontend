@@ -5,6 +5,7 @@ import { FaRegBell } from "react-icons/fa";
 import userProfileImage from "../../assets/profile.png";
 import { HiTrendingUp, HiTrendingDown } from "react-icons/hi";
 import data from "../../assets/data.json";
+import { BarChart } from "../../components/Chart";
 const Dashboard = () => {
   return (
     <div className="adminContainer">
@@ -52,6 +53,16 @@ const Dashboard = () => {
           <div className="revenue-chart">
             <h2>Revenue & Transactions</h2>
             {/* Graph here */}
+            <div>
+              <BarChart
+                data_1={[200, 444,343, 556, 778 , 755, 990]}
+                data_2={[300, 144, 433, 655, 237, 755, 190]}
+                title_1="Revenue"
+                title_2="Transaction"
+                bgColor_1="rgb(0,115,255)"
+                bgColor_2="rgba(53,162,255,0.8)" 
+              />
+            </div>
           </div>
           <div className="dashbord-categories">
             <h2>Inventory</h2>
@@ -61,7 +72,7 @@ const Dashboard = () => {
                   key={i}
                   heading={category.heading}
                   value={category.value}
-                  color={`hsl(${category.value*3},${category.value}%,50%)`}
+                  color={`hsl(${category.value * 3},${category.value}%,50%)`}
                 />
               ))}
             </div>
